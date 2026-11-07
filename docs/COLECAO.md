@@ -1,6 +1,6 @@
 # Coleção de experiências interativas — ovictorlab
 
-Planejamento de 07/11/2026. Dez projetos independentes; documentação inicial, sem aplicação implementada ou publicada nesta entrega.
+Coleção de 07/11/2026. Desenvolvimento dos dez autorizado. Os seis primeiros têm aplicações validadas localmente; sem deploy público. Cada repositório mantém seu estado e evidências.
 
 O produto combina a identidade de ovictorlab.com com exploração, seleção, isolamento, desmontagem, movimento e som inspirados no Fusquinha. A ordem abaixo é uma recomendação, não um cronograma contratado.
 
@@ -24,7 +24,7 @@ O produto combina a identidade de ovictorlab.com com exploração, seleção, is
 3. Voyager: seleção de instrumentos e expansão para astronomia.
 4. Reavaliar os demais com resultados do piloto e disponibilidade de modelos/dados.
 
-Não trabalhar nos dez aplicativos ao mesmo tempo. O trabalho autorizado nesta rodada é a documentação, seu envio ao GitHub e o registro no VicMind. Desenvolvimento, site no ar e posts no X são etapas posteriores.
+Desenvolver em sequência, mantendo todos os dez no escopo. O pedido posterior autorizou implementação e envio aos repositórios privados. Site no ar e posts no X são etapas posteriores.
 
 ## Evidência e limites
 

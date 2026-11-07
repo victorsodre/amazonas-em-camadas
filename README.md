@@ -1,6 +1,6 @@
 # Amazonas em camadas
 
-> **Estado: documentação inicial.** Aplicação ainda não implementada. Planejamento criado em 2026-11-07; prioridade recomendada 6/10.
+> **Desenvolvimento concluído e validado localmente em 07/11/2026.** Sexto projeto da coleção; repositório privado, sem deploy público.
 
 **O que existe abaixo da superfície do Amazonas?**
 
@@ -20,16 +20,37 @@ O Reel registrou 540.517 visualizações, 1.539 salvamentos e 2.498 compartilham
 1. [Escopo e critérios de conclusão](docs/ESCOPO.md).
 2. [Lista de execução](docs/EXECUCAO.md).
 3. [Identidade visual do ovictorlab](docs/IDENTIDADE-VISUAL.md).
-4. [Arquitetura proposta e reaproveitamento do Fusquinha](docs/ARQUITETURA.md).
-5. [Assets, fontes e pendências de apuração](docs/ASSETS-E-FONTES.md).
+4. [Arquitetura e reaproveitamento do Fusquinha](docs/ARQUITETURA.md).
+5. [Assets e fontes apuradas](docs/ASSETS-E-FONTES.md).
 6. [Manutenção, validação e publicação futura](docs/MANUTENCAO.md).
 7. [Decisões e estado do projeto](docs/DECISOES.md).
 8. [Textos para o X](POSTAGENS-X.md) e [ordem da coleção](docs/COLECAO.md).
 
-**Próxima ação:** Escolher um trecho e construir uma tabela de dados disponíveis; decidir explicitamente entre modelo medido e ilustração.
+## Experiência entregue
 
-**Esforço relativo:** Alto: pesquisa e dados podem limitar a precisão e o escopo. Prazo só deve ser estimado depois da validação de modelo e fontes.
+Óbidos, Pará, é a referência documentada. A cena é um corte autoral **sem escala**, com quatro conjuntos: água, leito/margens, depósitos e subsolo sedimentar. Retire a água da vista, separe as camadas, selecione, isole e reenquadre. Uma vista própria mostra água entre grãos, sem representar um canal subterrâneo.
 
-## O que esta entrega inclui
+As fichas explicam origem, data, método, resolução e limites de cada informação. Busca, tour de quatro etapas, malha, tela cheia e PNG 16:9/9:16 completam a exploração. Marca e tipografia oficiais, fontes locais e nenhum mapa, foto, som ou modelo de terceiros incorporado.
 
-Guias de desenvolvimento e manutenção, identidade visual, limites de escopo e rascunhos de divulgação. Não há aplicação, modelo 3D novo, licença de asset adquirida ou site publicado. Os repositórios foram preparados para trabalho independente, inicialmente privado. Não existe `npm install`, `npm test` ou deploy a executar nesta fase.
+## Executar
+
+Node.js >=22.18; versões exatas no lockfile.
+
+```sh
+npm ci
+npm run dev
+npm test
+npm run check
+npm run build
+npm run preview
+```
+
+`dev`: http://127.0.0.1:4311/ . `preview` informa a porta. Build estático em `dist/`, com base relativa e subpasta conferida. Sem backend, LLM, credenciais ou uso da GPU de produção.
+
+## Evidências e limites
+
+[APURACAO.md](docs/APURACAO.md) documenta o estudo local, a referência geográfica e a pesquisa relacionada ao Hamza. [VALIDACAO.md](docs/VALIDACAO.md) registra sete testes, 94 verificações de navegador e a inspeção visual. Validação móvel por viewport no Chrome do Mac, sem telefone físico.
+
+Não há batimetria medida, previsão hidrológica ou coluna estratigráfica reconstruída. Retirar água altera visibilidade; separar camadas cria intervalos de exploração. A amostra de poros é conceitual. Esses limites aparecem na interface e nos PNGs.
+
+Guias de manutenção/identidade em `docs/`. [POSTAGENS-X.md](POSTAGENS-X.md) contém rascunhos para Victor; publicação é posterior.

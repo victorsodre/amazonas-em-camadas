@@ -1,38 +1,25 @@
-# Assets e fontes — Amazonas em camadas
+# Assets e fontes
 
-**Situação inicial:** nenhum modelo, som ou conjunto de dados novo incorporado. Abaixo estão referências e tarefas de apuração, não certificação técnica de um aplicativo pronto.
+Implementação de 07/11/2026. A apuração canônica está em [APURACAO.md](APURACAO.md); nenhuma profundidade, mapa ou malha de pesquisa foi incorporada.
 
-## Conteúdo que originou a proposta
+## Origem editorial
 
 - [Amazonas — Instagram](https://www.instagram.com/reel/DeNhjYVKQOm/)
 - [Amazonas — YouTube](https://www.youtube.com/watch?v=UBBU6FyUwRM)
 
-O Reel registrou 540.517 visualizações, 1.539 salvamentos e 2.498 compartilhamentos no Instagram. Alcance elevado não elimina a necessidade de verificar a representação científica.
+O Reel registrou 540.517 visualizações, 1.539 salvamentos e 2.498 compartilhamentos na consulta de 07/11/2026. São sinais editoriais, sem previsão de uso da experiência.
 
-Leitura em 07/11/2026. A análise consultou as APIs oficiais do Instagram/YouTube e relatórios existentes do canal. Vídeos do próprio canal orientam a pauta; fatos científicos/operacionais precisam retornar a fontes primárias antes de serem usados no modelo.
+## Assets incorporados
 
-## Apuração obrigatória antes de implementar
+| Asset | Autoria/origem | Tratamento |
+|---|---|---|
+| Corte, materiais, grãos e vegetação | Geometria procedural do ovictorlab | Código em src/scene/model.ts, sem escala ou reprodução de levantamento |
+| Marca | Asset oficial de ovictorlab.com | SVG fiel em Brand.tsx/icon.svg; origem e hashes em IDENTIDADE-VISUAL.md |
+| Anton, Archivo, Archivo Black, JetBrains Mono | Fontsource 5.3.0, fontes OFL | Arquivos locais no build; licenças em public/licenses/ |
+| Bibliotecas de interface/3D | Dependências fixadas no lockfile | Licenças preservadas em public/licenses/bibliotecas.txt |
 
-- Estudo primário do fluxo subterrâneo associado ao Hamza e suas incertezas.
-- Levantamento batimétrico e geológico do trecho escolhido, com licença, resolução, datum e data.
+Sem foto, mapa, PDF, malha, som ou figura de terceiros servidos ao visitante. Documentos científicos são referências acessíveis por links. O registro da UnB restringe adaptação/uso comercial das figuras; não foram transpostas para o modelo.
 
-Para cada afirmação, registrar: texto, fonte primária, URL/página, data de consulta, trecho ou figura de suporte, unidades, limites e onde aparece na experiência. Não listar uma instituição como se um documento específico já tivesse sido conferido.
+## Atualização factual
 
-## Necessidade de geometria
-
-Reaproveitar conceitos de visualização de Maquete/Brasil sem Mar após leitura de suas regras. Dados marítimos e de relevo superficial não substituem a batimetria fluvial.
-
-## Registro de aquisição
-
-Preencher uma linha por asset ao incorporar. Manter a tabela vazia enquanto nada foi adquirido.
-
-| Arquivo/asset | Autor e URL | Licença/termos e data | Uso web permitido | Alterações | Hash/créditos |
-|---|---|---|---|---|---|
-
-Confirmar permissão para servir o arquivo no navegador: GLB e áudio enviados ao visitante são extraíveis. A licença do código não substitui a licença dos assets. Não baixar pacote executável, rodar scripts embutidos ou publicar interiores não verificados como engenharia fiel.
-
-## Referências da coleção
-
-- Marca e tipografia: fontes oficiais apontadas em IDENTIDADE-VISUAL.md.
-- Interação: [Fusquinha](https://github.com/victorsodre/fusquinha), especialmente README e documentação de assets.
-- Som: escolher fontes com licença explícita, início por gesto e mute. Evitar sons que sugiram mecanismo diferente do representado.
+Fontes por camada em src/content/catalog.ts; fichas completas em src/content/project.ts. Registrar origem, consulta, método, resolução/datum disponíveis, limitações e o que aparece na interface. A fonte de um local não valida a geometria autoral desse local. Não usar dados marítimos para preencher lacunas fluviais.

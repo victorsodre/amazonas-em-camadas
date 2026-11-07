@@ -1,52 +1,52 @@
 # Lista de execução — Amazonas em camadas
 
-Status de todas as etapas: **pendente de implementação**. Marcar somente após conferir a entrega correspondente. Prioridade da coleção: 6/10.
+Etapas 1–6 concluídas localmente em 07/11/2026. Prioridade da coleção: 6/10. Evidências em VALIDACAO.md; divulgação permanece posterior.
 
 ## 1. Apuração e decisão de escopo
 
-- [ ] Escolher um trecho e construir uma tabela de dados disponíveis; decidir explicitamente entre modelo medido e ilustração.
-- [ ] Resolver as pesquisas listadas em ASSETS-E-FONTES.md e registrar fonte, data, afirmação e limite.
-- [ ] Fechar a pergunta, os grupos e as três ações de ESCOPO.md.
+- [x] Escolher um trecho e construir uma tabela de dados disponíveis; decidir explicitamente entre modelo medido e ilustração.
+- [x] Resolver as pesquisas listadas em ASSETS-E-FONTES.md e registrar fonte, data, afirmação e limite.
+- [x] Fechar a pergunta, os grupos e as três ações de ESCOPO.md.
 
 **Pronto quando:** uma página de esquema permite revisar o funcionamento e suas simplificações antes de modelar.
 
 ## 2. Modelo e contrato de peças
 
-- [ ] Reaproveitar conceitos de visualização de Maquete/Brasil sem Mar após leitura de suas regras. Dados marítimos e de relevo superficial não substituem a batimetria fluvial.
-- [ ] Conferir licença de entrega web, escala, orientação, pivôs, materiais, nomes e créditos.
-- [ ] Criar catálogo estável; registrar pose inicial e grupos selecionáveis.
+- [x] Modelar o corte autoral e a amostra de poros, sem usar dados marítimos ou relevo como batimetria fluvial.
+- [x] Conferir licença de entrega web, escala, orientação, pivôs, materiais, nomes e créditos.
+- [x] Criar catálogo estável; registrar pose inicial e grupos selecionáveis.
 
 **Pronto quando:** o objeto pode ser inspecionado e cada conjunto tem origem e função documentadas. Se o asset não servir, reduzir escopo ou modelar; não improvisar interior como se fosse fiel.
 
 ## 3. Primeiro mecanismo funcional
 
-- [ ] Implementar o estado descrito em ESCOPO.md com geometria simples.
-- [ ] Demonstrar início, meio, fim, pausa, retomada e reset.
-- [ ] Validar os critérios específicos e registrar as hipóteses do modelo.
+- [x] Implementar o estado descrito em ESCOPO.md com geometria simples.
+- [x] Demonstrar início, meio, fim, pausa, retomada e reset.
+- [x] Validar os critérios específicos e registrar as hipóteses do modelo.
 
 **Pronto quando:** uma captura real mostra a resposta à pergunta sem depender de acabamento visual.
 
 ## 4. Exploração e identidade
 
-- [ ] Aplicar o guia visual, logo oficial e layout responsivo.
-- [ ] Implementar seleção por lista/clique, isolamento, reenquadramento e modos pertinentes.
-- [ ] Adicionar explicações curtas, fontes e ligação com os vídeos.
+- [x] Aplicar o guia visual, logo oficial e layout responsivo.
+- [x] Implementar seleção por lista/clique, isolamento, reenquadramento e modos pertinentes.
+- [x] Adicionar explicações curtas, fontes e ligação com os vídeos.
 
 **Pronto quando:** o visitante encontra o primeiro controle, entende a seleção e retorna à cena inicial em desktop e celular.
 
 ## 5. Acabamento e desempenho
 
-- [ ] Conferir enquadramento, materiais, luz, sombras e contraste em capturas reais.
-- [ ] Implementar áudio opcional e movimento reduzido, quando houver animação/som.
-- [ ] Medir orçamento de assets e renderização; tratar falhas de rede/WebGL.
+- [x] Conferir enquadramento, materiais, luz, sombras e contraste em capturas reais.
+- [x] Conferir movimento reduzido e transições por gesto. Áudio dispensado: não melhora a distinção entre materiais e água.
+- [x] Medir orçamento de assets e renderização; tratar falhas de rede/WebGL.
 
 **Pronto quando:** os fluxos de MANUTENCAO.md passam no dispositivo de referência, com medidas e limitações registradas.
 
 ## 6. Entrega revisável
 
-- [ ] Registrar comandos reais de setup/check/build no README após implementar o código.
-- [ ] Revisar diff, créditos, texto factual e estados dos controles.
-- [ ] Preparar prévia e instruções de reversão; documentar a URL somente quando existir.
+- [x] Registrar comandos reais de setup/check/build no README após implementar o código.
+- [x] Revisar diff, créditos, texto factual e estados dos controles.
+- [x] Preparar prévia e instruções de reversão; documentar a URL somente quando existir.
 
 **Pronto quando:** outra pessoa consegue reproduzir a versão e verificar o resultado. Deploy depende de autorização no pedido vigente.
 
@@ -57,4 +57,4 @@ Status de todas as etapas: **pendente de implementação**. Marcar somente após
 - [ ] Publicar apenas quando Victor decidir; registrar permalink depois do envio.
 - [ ] Se houver medição, revisar uso em 7/28 dias e decidir o próximo incremento.
 
-**Estimativa:** Alto: pesquisa e dados podem limitar a precisão e o escopo. Não fixar dias de entrega antes das etapas 1 e 2.
+**Entrega:** sete testes, check/build, 94 verificações Chrome e imagens revisadas. Sem publicação pública.

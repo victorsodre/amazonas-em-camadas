@@ -1,71 +1,30 @@
-# Arquitetura proposta
+# Arquitetura implementada
 
-Documento de planejamento. Nenhum comando de build ou teste existe ainda neste repositório.
+Aplicação estática: React 19.2.6, TypeScript 5.9.3, Three.js 0.187.0 e Vite 8.3.6. Node >=22.18; versões exatas no lockfile. Geometria autoral local, sem backend ou download de modelo.
 
-## Base
+| Módulo | Responsabilidade |
+|---|---|
+| src/App.tsx | Estados de exploração, transição, seleção, vista de poros, fontes e fallback |
+| src/simulation/section.ts | Perfil contínuo, separação por origens, interpolação e relógio limitado |
+| src/scene/model.ts | Quatro sólidos, vegetação instanciada, guias de referência e amostra de grãos |
+| src/scene/runtime.ts | Câmera, renderização, raycast, isolamento, resize e descarte |
+| src/scene/camera.ts | Enquadramento por projeção e limites, incluindo retrato/vista vertical |
+| src/scene/capture.ts | PNG com marca e indicação de ilustração/ausência de escala |
+| src/content/ | Catálogo, coordenadas de referência, fontes e limites |
+| src/ui/ e styles.css | Controles HTML, fichas, marca, fontes e layout responsivo |
 
-React + TypeScript + Three.js + Vite, como referência do Fusquinha. Fixar versões e lockfile no início da implementação, após verificar compatibilidade atual e licença do código reaproveitado. Não adotar a versão antiga do Three apenas por cópia automática.
+## Estado e invariantes
 
-Aplicação estática executada no navegador do visitante. O MVP não requer LLM, backend nem GPU de produção permanentemente alocada. Modelagem e processamento de assets são tarefas separadas e delimitadas.
+`water` controla opacidade e presença da água; não rebaixa um nível hidrológico. `separation` desloca água, leito e subsolo a partir de suas origens. Sedimento central fica como referência. Linhas verticais indicam alinhamento original. Nenhum deslocamento é acumulado.
 
-## Organização sugerida
+Estado inicial/reset: água visível, camadas montadas, corte, poros com água, sem isolamento/malha. Etapas: Superfície (1,0), Leito (0,0), Camadas (0,1). Interpolação suave de 1,2 s, somente por gesto; pausa, delta limitado a 0,1 s e congelamento durante ocultação. Movimento reduzido troca diretamente para o alvo.
 
-```text
-src/
-  app/              composição da tela e estados de carregamento
-  scene/            cena, câmera, iluminação e renderização
-  interactions/     seleção, isolamento, corte e desmontagem
-  simulation/       estado determinístico do mecanismo educativo
-  content/          catálogo, explicações, vídeos e fontes
-  ui/               controles HTML acessíveis
-  styles/           tokens do ovictorlab e layout
-public/
-  models/           somente arquivos com entrega web autorizada
-  audio/            sons licenciados, carregados sob demanda
-  fonts/            fontes locais e respectivas licenças
-```
+`mode` troca a seção pela amostra ampliada; ela não fica desenhada sob o rio. `poreWater` alterna a água no espaço da amostra. Grãos e vegetação usam InstancedMesh. Malhas fechadas têm faces laterais com normais independentes. Perfil e cores são funções autorais, em unidades de desenho, sem escala métrica.
 
-Criar só o que o piloto utilizar. Começar independente; extrair um pacote compartilhado depois que o segundo projeto comprovar reutilização concreta.
+Quatro IDs estáveis: water, bed, sediment, substrate. Água invisível não captura cliques. Guias, linhas de superfície e chão não são peças. Selecionar água restaura sua visibilidade. Isolar guarda a câmera e retornar restaura a pose anterior.
 
-## Contratos
+## Renderização e entrega
 
-- Peça: `id`, `label`, `groupId`, nós do modelo, pose de origem, descrição e referências. IDs estáveis entre atualizações.
-- Seleção: um catálogo determina o que pode ser selecionado; elementos auxiliares não capturam clique por acidente.
-- Desmontagem: transformação deriva de pose de origem e progresso 0–1; nunca acumula deslocamento a cada frame. Corte e desmontagem são modos distintos.
-- Mecanismo: estado serializável, limites explícitos, pausa e reset. Tempo de animação não depende de quantidade de frames.
-- Fontes: título, instituição/autor, URL, data de consulta, afirmação suportada e limite. Texto da interface aponta para esse catálogo.
-- Áudio: inicia após gesto, tem volume/mute e para com cena oculta ou mecanismo desligado.
+DPR até 1,5; atualização até 30 vezes/s, renderização sob demanda. Sem órbita automática, áudio, texturas externas ou telemetria. Falha de WebGL preserva catálogo e fontes, desabilita ações da cena e oferece recarga.
 
-## O que avaliar no Fusquinha
-
-`src/VehicleScene.tsx`: renderização/câmera/seleção. `src/catalog.ts`: agrupamento. `src/layout.ts`: posições e enquadramento. `src/vehicle-rig.ts`: pivôs e articulação. `src/vehicle-sounds.ts`: áudio. `src/engine-motion.ts`: movimento e pausa. Esses arquivos são referências de implementação, não garantem uma biblioteca pronta para outros objetos.
-
-Antes de copiar, conferir responsabilidades, licenças e dependências. Motor, material, cenário e GLB do Fusquinha não pertencem automaticamente ao novo projeto.
-
-## Orçamento inicial de desempenho
-
-Metas propostas a validar no primeiro protótipo, não resultados já medidos:
-
-- Cena em aproximadamente 30 fps durante interação no dispositivo móvel de referência registrado.
-- Renderização sob demanda quando parada; suspender trabalho em aba oculta.
-- Começar com DPR limitado a 1,5 no celular, texturas de 1K quando suficientes e cena progressiva. Ajustar por medição visual e de memória.
-- Buscar até 10 MB comprimidos para a primeira cena útil; qualquer exceção precisa de comparação antes/depois e carregamento progressivo.
-- Medir modelo, texturas, draw calls e tempo até o primeiro controle utilizável. Evitar simulação física genérica quando uma cinemática determinística explica o fenômeno.
-
-## Entrega futura
-
-Build estático com caminhos relativos ou base configurável; testar recarga direta e hospedagem em subpasta. Integração com ovictorlab.com pode usar rota ou link, a decidir quando houver aplicação pronta. Não alterar o site principal durante o desenvolvimento inicial.
-
-Captura PNG é uma possibilidade herdada do Fusquinha. Presets de câmera 16:9 e 9:16 e tour guiado são extensões planejadas; não estão implementados. Gravar vídeo exige validar o método de captura e sincronização do som.
-
-## Implementação específica
-
-Geometria: Reaproveitar conceitos de visualização de Maquete/Brasil sem Mar após leitura de suas regras. Dados marítimos e de relevo superficial não substituem a batimetria fluvial.
-
-Estado proposto: `surface ↔ riverbed ↔ layers; waterLevel e layerSeparation são controles visuais, não previsão hidrológica.`
-
-Invariantes que devem orientar código e testes:
-
-- O visitante distingue levantamento real de corte ilustrativo na própria interface.
-- Não representar o fluxo subterrâneo chamado Hamza como um rio aberto numa caverna; apurar a pesquisa e seus limites.
-- Não extrapolar batimetria marinha para o rio; profundidades e escala vertical precisam de fonte e localização.
+Build com base `./`, conferido em `/amazonas-em-camadas/`. PNG produzido no navegador; restaura câmera e renderizador. Não depende dos outros repositórios ou da GPU de produção. Medidas e limitações em VALIDACAO.md.

@@ -12,10 +12,10 @@ O vídeo do Amazonas virou uma pergunta maior: como deixar alguém explorar essa
 
 ## Bastidor
 
-Condição/mídia: Usar somente depois de existir o protótipo descrito. Anexar captura real da interação; ajustar o texto ao que efetivamente funcionar.
+Condição/mídia: versão local implementada e validada em 07/11/2026. Anexar captura real. Ainda não há URL pública.
 
 ```text
-O desafio do Amazonas em 3D começa antes da modelagem: saber o que os dados permitem mostrar. Neste estudo, água, leito e subsolo têm fontes e limites próprios. A escala precisa aparecer junto da imagem.
+O Amazonas em camadas já funciona no laboratório do ovictorlab. Dá para retirar a água da vista, separar o terreno e explorar água entre grãos. Óbidos é a referência; o corte é ilustrativo, sem escala. Cada camada tem fontes e limites explícitos.
 ```
 
 ## Lançamento

@@ -15,11 +15,11 @@ Um corte geográfico localizado, com água, leito e camadas do subsolo identific
 - Escala e localização
 - Fontes e incertezas
 
-Esses grupos são uma proposta semântica; validar sua correspondência com a geometria e as fontes antes de nomear peças como reais.
+Implementados quatro grupos selecionáveis: água, leito/margens, depósitos sedimentares e subsolo sedimentar. Localização, escala e incertezas são informações da interface, sem virar peças fictícias. A amostra de poros fica em uma vista independente.
 
 ## Ações principais
 
-| Controle | Comportamento planejado |
+| Controle | Comportamento entregue |
 |---|---|
 | Retirar água | Expõe o leito representado sem transformar hipótese em dado medido. |
 | Separar camadas | Afasta as camadas mantendo legenda, posição de referência e indicação de escala. |
@@ -29,7 +29,7 @@ Base de exploração: órbita, zoom, seleção por lista ou clique, isolamento, 
 
 ## Estado do mecanismo
 
-`surface ↔ riverbed ↔ layers; waterLevel e layerSeparation são controles visuais, não previsão hidrológica.`
+`water` e `separation` variam de 0 a 1; `mode` alterna corte e poros. Água muda visibilidade, sem alterar o nível físico. As três etapas definem estados reversíveis; transições têm pausa e respeitam movimento reduzido.
 
 ## Critérios específicos de conclusão
 
@@ -47,3 +47,7 @@ Base de exploração: órbita, zoom, seleção por lista ou clique, isolamento, 
 - Túneis subterrâneos fantasiosos, profundidades inventadas e extrapolação da foz para todo o rio.
 
 Ampliações entram no backlog após o piloto, com evidência de uso e esforço. Não incluir funcionalidades só para repetir todas as opções do Fusquinha.
+
+## Aceite em 07/11/2026
+
+Escopo implementado e conferido no Chrome. Superfície, leito e camadas têm ações reais, retorno determinístico e fontes específicas. A posição de referência vem do CHM; geometria, espessuras e amostra são explicitamente ilustrativas. O trabalho primário de Óbidos e a pesquisa de fluxos subterrâneos foram apurados, sem copiar figuras. Sete testes e 94 checks de navegador; limites em VALIDACAO.md. Sem deploy ou postagem.

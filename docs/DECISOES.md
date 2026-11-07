@@ -8,12 +8,18 @@
 - Repositório inicialmente privado por escolha operacional conservadora nesta fase. O pedido autoriza o envio dos guias; não foi tratado como solicitação de implementar e publicar os aplicativos.
 - Nenhuma postagem no X enviada. Textos de protótipo e lançamento têm condições explícitas de uso.
 
-## Pendências técnicas
+## 2026-11-07 — implementação e aceite local
 
-- Estudo primário do fluxo subterrâneo associado ao Hamza e suas incertezas.
-- Levantamento batimétrico e geológico do trecho escolhido, com licença, resolução, datum e data.
+O pedido posterior de desenvolver todos os projetos autorizou a aplicação. Publicação continua fora desta rodada.
 
-Próxima ação: Escolher um trecho e construir uma tabela de dados disponíveis; decidir explicitamente entre modelo medido e ilustração.
+- Óbidos como referência; ponto do CHM e estudo primário UnB/AMANAUS consultados. Cena autoral sem escala, sem importar mapas, profundidades ou figuras restritas.
+- Quatro conjuntos; retirar água altera visibilidade, separar abre intervalos visuais reversíveis. Dimensões não são medidas.
+- Amostra de poros em vista própria; Hamza explicado por inferência de pesquisa regional, sem desenhar canal em caverna.
+- Marca oficial, fontes locais, catálogo, isolamento, tour, malha, tela cheia e PNGs. Áudio dispensado por não melhorar a explicação.
+- Sete testes, 94 verificações Chrome e build em subpasta aprovados. Celular emulado; sem ensaio físico ou validação científica do perfil autoral.
+- Guias e rascunho de bastidor atualizados. Sem deploy ou envio ao X.
+
+Próximo da coleção: radar-placas. Evidência canônica em VALIDACAO.md.
 
 ## Como registrar mudanças
 
