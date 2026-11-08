@@ -2,12 +2,12 @@
 
 Rascunhos para Victor publicar posteriormente. **Nada foi enviado.** Público: pessoas curiosas sobre engenharia/ciência e quem acompanha a construção dos projetos. Um assunto por post, sem métricas privadas ou promessa de data.
 
-## Planejamento
+## Apresentação do projeto
 
-Condição/mídia: Pode ser usado para anunciar a intenção. Mostrar esquema identificado como plano ou referência do Fusquinha.
+Condição/mídia: Versão local concluída. Anexar captura real; o texto não anuncia uma URL pública.
 
 ```text
-O vídeo do Amazonas virou uma pergunta maior: como deixar alguém explorar essas camadas? O plano é criar um corte interativo, com uma regra clara: mostrar o que vem de dados e o que é apenas ilustração.
+O Amazonas ganhou um corte interativo no ovictorlab: retirar a água da vista, separar camadas e explorar poros. Óbidos é a referência geográfica; o terreno é uma ilustração sem escala, com fontes e limites acessíveis.
 ```
 
 ## Bastidor
