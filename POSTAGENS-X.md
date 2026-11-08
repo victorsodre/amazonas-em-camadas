@@ -4,10 +4,10 @@ Rascunhos para Victor publicar posteriormente. **Nada foi enviado.** Público: p
 
 ## Apresentação do projeto
 
-Condição/mídia: Versão local concluída. Anexar captura real; o texto não anuncia uma URL pública.
+Condição/mídia: Anexar captura real da experiência. URL: https://victorsodre.github.io/amazonas-em-camadas/
 
 ```text
-O Amazonas ganhou um corte interativo no ovictorlab: retirar a água da vista, separar camadas e explorar poros. Óbidos é a referência geográfica; o terreno é uma ilustração sem escala, com fontes e limites acessíveis.
+O Amazonas virou uma experiência 3D do ovictorlab. Retire a água da vista, separe as camadas e explore água entre grãos. Óbidos é a referência; o corte é ilustrativo, sem escala. Já está no ar.
 ```
 
 ## Bastidor
@@ -20,10 +20,10 @@ O Amazonas em camadas já funciona no laboratório do ovictorlab. Dá para retir
 
 ## Lançamento
 
-Condição/mídia: Usar somente depois de publicar e validar o aplicativo. Anexar demonstração real; responder com a URL pública exata. Não usar endereço privado de repositório como link para experimentar.
+Condição/mídia: Anexar demonstração real e abrir a URL pública para conferir antes de enviar.
 
 ```text
-Amazonas em camadas está no ar. Você pode retirar a água da representação, explorar o corte e consultar as fontes e os limites do modelo. Link na resposta.
+Amazonas em camadas está no ar. Você pode retirar a água da representação, explorar o corte e consultar as fontes e os limites do modelo. https://victorsodre.github.io/amazonas-em-camadas/
 ```
 
 ## Antes de colar no X
@@ -31,5 +31,5 @@ Amazonas em camadas está no ar. Você pode retirar a água da representação, 
 - Conferir se o tempo verbal corresponde ao estado real do projeto.
 - Validar duração, legibilidade e texto alternativo da mídia anexada.
 - Conferir o comprimento no compositor; os rascunhos não dependem de assinatura ou postagem longa.
-- Inserir link somente quando existir e puder ser aberto pelo público.
+- Abrir a URL pública acima antes de postar; conferir também em uma janela sem sessão.
 - Após publicar, registrar data e permalink aqui. Não automatizar envios a partir deste arquivo.

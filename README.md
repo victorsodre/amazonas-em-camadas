@@ -1,6 +1,8 @@
 # Amazonas em camadas
 
-> **Desenvolvimento concluído e validado localmente em 07/11/2026.** Sexto projeto da coleção; repositório privado, sem deploy público.
+**[Abrir a experiência →](https://victorsodre.github.io/amazonas-em-camadas/)** · [Os 10 experimentos](docs/COLECAO.md) · [Publicação e manutenção](docs/PUBLICACAO.md)
+
+[![Amazonas em camadas — captura real da experiência](public/share.png)](https://victorsodre.github.io/amazonas-em-camadas/)
 
 **O que existe abaixo da superfície do Amazonas?**
 
@@ -22,7 +24,7 @@ O Reel registrou 540.517 visualizações, 1.539 salvamentos e 2.498 compartilham
 3. [Identidade visual do ovictorlab](docs/IDENTIDADE-VISUAL.md).
 4. [Arquitetura e reaproveitamento do Fusquinha](docs/ARQUITETURA.md).
 5. [Assets e fontes apuradas](docs/ASSETS-E-FONTES.md).
-6. [Manutenção, validação e publicação futura](docs/MANUTENCAO.md).
+6. [Manutenção, validação e publicação](docs/MANUTENCAO.md).
 7. [Decisões e estado do projeto](docs/DECISOES.md).
 8. [Textos para o X](POSTAGENS-X.md) e [ordem da coleção](docs/COLECAO.md).
 
