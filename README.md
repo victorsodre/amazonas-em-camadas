@@ -10,6 +10,16 @@ Um corte geográfico localizado, com água, leito e camadas do subsolo identific
 
 Direção e autoria editorial: **Victor Sodré / ovictorlab**. [Site](https://ovictorlab.com/) · [Referência Fusquinha](https://victorsodre.github.io/fusquinha/) · [Repositório](https://github.com/victorsodre/amazonas-em-camadas).
 
+## Entenda no vídeo
+
+<a href="https://www.youtube.com/watch?v=UBBU6FyUwRM"><img src="public/video-thumbnail.jpg" width="280" alt="Assistir: Por que ninguém explora o fundo do rio Amazonas? (tem outro rio embaixo)" /></a>
+
+**[Por que ninguém explora o fundo do rio Amazonas? (tem outro rio embaixo)](https://www.youtube.com/watch?v=UBBU6FyUwRM)**
+
+O vídeo apresenta a pergunta sobre o fundo do Amazonas. No experimento, confira o corte ilustrativo de Óbidos e a distinção entre água nos poros e um canal subterrâneo.
+
+O player incorporado fica [na página do experimento](https://victorsodre.github.io/amazonas-em-camadas/#video), com carregamento por clique e sem reprodução automática.
+
 ## Por que desenvolver
 
 O Reel registrou 540.517 visualizações, 1.539 salvamentos e 2.498 compartilhamentos no Instagram. Alcance elevado não elimina a necessidade de verificar a representação científica. Consulta em 07/11/2026. Métricas acumuladas são sinais de interesse; não comprovam demanda pelo aplicativo ou alcance orgânico.
