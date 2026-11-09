@@ -40,3 +40,9 @@ test('mouse hint only on a fine pointer, touch hint only on a coarse one', () =>
   assert.match(css, /@media\(pointer:fine\)\{\.hint-fine\{display:inline\}\}/);
   assert.match(css, /@media\(pointer:coarse\)\{[^}]*\}\s*\.hint-fine\{display:none\}\s*\.hint-coarse\{display:inline\}/);
 });
+
+test('an open layer card pushes the desktop stage aside instead of covering the model', () => {
+  const app = readFileSync(new URL('./App.tsx', import.meta.url), 'utf8');
+  assert.match(app, /current\?' has-inspector':''/);
+  for (const left of ['376px', '388px', '398px']) assert.match(css, new RegExp(`\\.has-inspector \\.scene-host\\{left:${left}\\}`));
+});

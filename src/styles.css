@@ -224,6 +224,10 @@ dialog::backdrop{background:#050713c9;backdrop-filter:blur(7px)}
 }
 
 /* Phone and tablet: one column, the scene never covered, page scroll never trapped */
+/* Open layer card: the stage starts after the card, so the card never sits on the model. */
+@media(min-width:1101px) and (max-width:1449px){.has-inspector .scene-host{left:388px}.has-inspector .orbit-hint{left:calc(388px + (100% - 453px)/2)}}
+@media(min-width:1450px){.has-inspector .scene-host{left:398px}.has-inspector .orbit-hint{left:calc(398px + (100% - 463px)/2)}}
+@media(max-width:1100px) and (min-width:901px){.has-inspector .scene-host{left:376px}.has-inspector .orbit-hint{left:calc(376px + (100% - 441px)/2)}}
 @media(max-width:900px){
  .header{height:65px;padding:0 16px;gap:12px}
  .brand{font-size:22px}
