@@ -56,7 +56,10 @@ export function createScene(host: HTMLElement, onPick: (id: PartId) => void, onE
     if (current.x !== width || current.y !== height) renderer.setSize(width, height);
     camera.aspect = toAspect;camera.updateProjectionMatrix();
     if (framed && Math.abs(fromAspect - toAspect) > .0001) {
-      camera.position.copy(controls.target).add(resizedOffset(orbit(), frameBounds(), fromAspect, toAspect, camera.fov));controls.update();
+      // Measure the orbit before moving the camera: copying the target first collapsed the offset to zero
+      // (camera glued to the grains when the pore tab resized the stage).
+      const offset = resizedOffset(orbit(), frameBounds(), fromAspect, toAspect, camera.fov);
+      camera.position.copy(controls.target).add(offset);controls.update();
     }
     invalidate();
   };
@@ -103,7 +106,9 @@ export function createScene(host: HTMLElement, onPick: (id: PartId) => void, onE
       const contentChanged = previous.separation !== state.separation || previous.mode !== state.mode || (previous.water > .001) !== (state.water > .001);
       if (!previous.isolated && state.isolated) {previousPose = {position: camera.position.clone(), target: controls.target.clone()};frameTo();}
       else if (previous.isolated && !state.isolated && previousPose) {camera.position.copy(previousPose.position);controls.target.copy(previousPose.target);controls.update();previousPose = null;}
-      if (contentChanged) frameTo();
+      // A new view (cut or pore sample) always opens from the home angle, like "Reenquadrar".
+      if (previous.mode !== state.mode) home();
+      else if (contentChanged) frameTo();
       const data = canvas.dataset;data.water = state.water.toFixed(3);data.separation = state.separation.toFixed(3);data.mode = state.mode;data.poreWater = String(state.poreWater);invalidate();
     },
     home,

@@ -21,7 +21,7 @@ export function DepthScale({openSource}:{openSource:(id:SourceId)=>void}){
  return <section id="escala" className="scale-section" aria-labelledby="scale-title" tabIndex={-1}>
   <div className="scale-inner">
    <div className="scale-copy">
-    <p className="eyebrow"><span/>EM ESCALA REAL <i>—</i> OS NÚMEROS DO VÍDEO</p>
+    <p className="eyebrow heading-eyebrow"><span/><em>EM ESCALA REAL</em><i>—</i><em>OS NÚMEROS DO VÍDEO</em></p>
     <h2 id="scale-title">O FUNDO DO AMAZONAS<br/>TEM OUTRO FUNDO.</h2>
     <p>O corte 3D é ilustrativo e não tem escala. Aqui as profundidades estão em escala, cada uma com a sua fonte.</p>
     <dl className="scale-facts">

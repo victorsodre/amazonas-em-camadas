@@ -2,6 +2,7 @@ import {useCallback,useEffect,useRef,useState} from 'react';
 import {ArrowLeft,ArrowRight,ArrowUpRight,Box,ChevronRight,Download,Focus,Layers3,MapPin,Maximize,Minus,Plus,Ruler,Search,X} from 'lucide-react';
 import {Brand} from './kit/Brand.tsx';
 import {CollectionNav} from './kit/CollectionNav.tsx';
+import {labNumber} from './kit/collection.ts';
 import {VideoSection} from './kit/VideoSection.tsx';
 import {video} from './content/video.ts';
 import {Sources} from './ui/Sources.tsx';
@@ -17,6 +18,8 @@ type Transition={from:DisplayState;to:DisplayState;progress:number};
 const initial:DisplayState=TOUR[0].view;
 const normalize=(v:string)=>v.toLocaleLowerCase('pt-BR').normalize('NFD').replace(/\p{Diacritic}/gu,'');
 const pad=(n:number)=>String(n).padStart(2,'0');
+/** Same number as the collection menu, never a fixed one. */
+const LAB=labNumber('amazonas-em-camadas');
 
 export function App(){
  const host=useRef<HTMLDivElement>(null),scene=useRef<SceneHandle|null>(null),inspector=useRef<HTMLElement>(null),dialog=useRef<HTMLDialogElement>(null);
@@ -94,9 +97,9 @@ export function App(){
 
  const list=()=> <><label className="search"><Search size={16}/><input aria-label="Encontrar camada" placeholder="Encontrar camada" value={search} onChange={e=>setSearch(e.target.value)}/><span>{pad(filtered.length)}<span className="sr-only"> camadas</span></span></label><div className="parts-list">{filtered.map(p=><button className={'part-row'+(p.id===selected?' selected':'')} aria-pressed={p.id===selected} key={p.id} onClick={()=>{select(p.id);setDrawer(false)}}><span style={{background:p.color}} className="layer-swatch"/><strong>{p.label}</strong><ChevronRight size={14}/></button>)}{filtered.length===0&&<small className="search-hint">Nenhuma camada encontrada.</small>}</div></>;
  const last=TOUR.length-1;
- return <div className="app"><header className="header"><Brand/><div className="collection-label">O MUNDO POR DENTRO <span>/</span> LAB 06</div><a className="video-link" href="#video">Ver o vídeo <ArrowUpRight size={16}/></a></header>
+ return <div className="app"><header className="header"><Brand/><div className="collection-label">O MUNDO POR DENTRO <span>/</span> LAB {LAB}</div><a className="video-link" href="#video">Ver o vídeo <ArrowUpRight size={16}/></a></header>
  <main className={'workspace river-workspace '+(mode==='pores'?'pore-mode':'')}>
-  <div className="heading"><p className="eyebrow"><span/>EXPERIMENTO 06 <i>—</i> ABAIXO DA SUPERFÍCIE</p><h1>AMAZONAS<br/>EM CAMADAS<span>.</span></h1><p className="intro">{project.intro}</p><button className="location-button" onClick={()=>setSource('chm')}><MapPin size={14}/>{place.name}<ArrowUpRight size={13}/></button></div>
+  <div className="heading"><p className="eyebrow heading-eyebrow"><span/><em>EXPERIMENTO {LAB}</em><i>—</i><em>ABAIXO DA SUPERFÍCIE</em></p><h1>AMAZONAS<br/>EM CAMADAS<span>.</span></h1><p className="intro">{project.intro}</p><button className="location-button" onClick={()=>setSource('chm')}><MapPin size={14}/>{place.name}<ArrowUpRight size={13}/></button></div>
   <div className="canvas-region"><div className="scene-host" ref={host}/>{!ready&&!error&&<p className="loading" role="status">Carregando a cena 3D…</p>}{error&&<div className="scene-error" role="alert"><Box size={28}/><h2>Cena indisponível</h2><p>{error}</p><button className="primary" onClick={()=>location.reload()}>Tentar novamente</button></div>}<div className="scene-mode"><span className="status-dot"/>{mode==='pores'?'AMOSTRA AMPLIADA':'CORTE ILUSTRATIVO'}<span className="mode-divider"/>SEM ESCALA</div><div className="orbit-hint"><span className="hint-fine">Arraste para girar</span><span className="hint-coarse">Deslize para os lados para girar</span><i>·</i>{mode==='pores'?'Água entre os grãos':'Geometria autoral'}</div></div>
   <aside className="sidebar">{mode==='section'?<><div className="sidebar-label">DA SUPERFÍCIE AO SUBSOLO.</div>{list()}<div className="sidebar-foot"><span className="mini-line"/><p>Uma localização real.<br/>Um corte ilustrativo, sem escala.</p><button className="text-button" disabled={!usable} onClick={()=>guide(0)}>Conhecer as camadas <ArrowRight size={15}/></button><button className="text-button" onClick={showScale}>Profundidades em escala real <Ruler size={15}/></button></div></>:<div className="pore-story"><span className="sidebar-label">ÁGUA SUBTERRÂNEA</span><h2>Entre os grãos.</h2><p>A água ocupa espaços no material. Poros conectados permitem sua passagem.</p><p className="muted">Esta amostra é ampliada e conceitual. Não representa o tamanho dos grãos ou um aquífero de Óbidos.</p><button className="text-button" onClick={()=>setSource('usgs')}>Entender a representação <ArrowRight size={15}/></button></div>}<button className="hamza-button" onClick={()=>setSource('hamza')}>E o chamado Hamza?<ArrowUpRight size={14}/></button></aside>
   <nav className="view-switch" aria-label="Vista da experiência"><button aria-pressed={mode==='section'} className={mode==='section'?'active':''} onClick={()=>switchMode('section')}>Trecho em corte</button><button aria-pressed={mode==='pores'} className={mode==='pores'?'active':''} onClick={()=>switchMode('pores')}>Água nos poros</button></nav>

@@ -28,3 +28,15 @@ test('no text in the stylesheet is set below 11 px', () => {
   assert.ok(sizes.length > 50);
   for (const size of sizes) assert.ok(size >= 11, `fonte de ${size}px`);
 });
+
+test('the header number comes from the collection (labNumber), never a fixed one', () => {
+  const app = readFileSync(new URL('./App.tsx', import.meta.url), 'utf8');
+  assert.match(app, /labNumber\('amazonas-em-camadas'\)/);
+  assert.doesNotMatch(app, /(LAB|EXPERIMENTO) \d/);
+});
+
+test('mouse hint only on a fine pointer, touch hint only on a coarse one', () => {
+  assert.match(css, /\.hint-fine,\.hint-coarse\{display:none\}/);
+  assert.match(css, /@media\(pointer:fine\)\{\.hint-fine\{display:inline\}\}/);
+  assert.match(css, /@media\(pointer:coarse\)\{[^}]*\}\s*\.hint-fine\{display:none\}\s*\.hint-coarse\{display:inline\}/);
+});

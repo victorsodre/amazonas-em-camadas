@@ -54,7 +54,7 @@ export function createModel(){
   const g=new T.BufferGeometry().setFromPoints(pts);geometries.push(g);const m=new T.LineBasicMaterial({color,transparent:true,opacity:.5});materials.push(m);const lines=new T.LineSegments(g,m);lines.raycast=()=>{};part.group.add(lines);
  }
  // A straight, schematic channel; measured survey geometry is intentionally not imported.
- const waterMaterial=material('#ffffff',{vertexColors:true,roughness:.35,metalness:0,transparent:true,opacity:1,depthWrite:false});
+ const waterMaterial=material('#ffffff',{vertexColors:true,roughness:.8,envMapIntensity:.35,metalness:0,transparent:true,opacity:1,depthWrite:false});
  const water=mesh(solid(96,32,(u,v)=>{const x=-6+u*12;return [x,riverCenter(x)+(v*2-1)*HALF_WIDTH]},()=>WATER_Y,bedHeight,(x,y,z,upper)=>waterColor(upper?WATER_Y-(WATER_Y-bedHeight(x,z))*.2:y).multiplyScalar(.96+.04*Math.sin(x*2.3+z*1.7))),waterMaterial,parts[0]!.group);water.castShadow=false;
  const ripples:T.Vector3[]=[];
  for(let row=0;row<11;row++)for(let j=0;j<5;j++){const x=-5.7+row*1.03+j*.07,z=riverCenter(x)+(j-2)*.65;for(let k=0;k<6;k++)ripples.push(new T.Vector3(x+k*.08,WATER_Y+.004,z+.018*Math.sin(k)),new T.Vector3(x+(k+1)*.08,WATER_Y+.004,z+.018*Math.sin(k+1)));}
