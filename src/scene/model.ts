@@ -1,6 +1,6 @@
 import * as T from 'three';
 import {catalog} from '../content/catalog.ts';
-import {bedHeight,riverCenter,HALF_WIDTH,WATER_Y,sampleLayers,unit} from '../simulation/section.ts';
+import {bedHeight,riverCenter,BED_FLOOR,HALF_WIDTH,WATER_Y,sampleLayers,unit} from '../simulation/section.ts';
 import type {Part,Mode} from './types.ts';
 
 function solid(nx:number,nz:number,coordinate:(i:number,j:number)=>[number,number],top:(x:number,z:number)=>number,bottom:(x:number,z:number)=>number,color:(x:number,y:number,z:number,upper:boolean)=>T.Color){
@@ -26,6 +26,12 @@ function solid(nx:number,nz:number,coordinate:(i:number,j:number)=>[number,numbe
  }
  const geometry=new T.BufferGeometry();geometry.setAttribute('position',new T.Float32BufferAttribute(positions,3));geometry.setAttribute('color',new T.Float32BufferAttribute(colors,3));geometry.setIndex(indices);geometry.computeVertexNormals();return geometry;
 }
+const MUDDY_SURFACE=new T.Color('#a5824f'),MUDDY_DEPTH=new T.Color('#24190f');
+/** Illustrative only: sediment-laden water darkens quickly below the surface. Not a measured light profile. */
+export function waterColor(y:number){
+ const depth=Math.max(0,Math.min(1,(WATER_Y-y)/(WATER_Y-BED_FLOOR)));
+ return MUDDY_SURFACE.clone().lerp(MUDDY_DEPTH,Math.pow(depth,.55));
+}
 const rectangle=(u:number,v:number):[number,number]=>[-6+12*u,-3.8+7.6*v];
 export function createModel(){
  const root=new T.Group(),section=new T.Group(),pores=new T.Group();root.add(section,pores);pores.visible=false;
@@ -48,11 +54,11 @@ export function createModel(){
   const g=new T.BufferGeometry().setFromPoints(pts);geometries.push(g);const m=new T.LineBasicMaterial({color,transparent:true,opacity:.5});materials.push(m);const lines=new T.LineSegments(g,m);lines.raycast=()=>{};part.group.add(lines);
  }
  // A straight, schematic channel; measured survey geometry is intentionally not imported.
- const waterMaterial=material('#465b54',{roughness:.2,metalness:.05,transparent:true,opacity:1,depthWrite:false});
- const water=mesh(solid(96,32,(u,v)=>{const x=-6+u*12;return [x,riverCenter(x)+(v*2-1)*HALF_WIDTH]},()=>WATER_Y,bedHeight,()=>new T.Color('#ffffff')),waterMaterial,parts[0]!.group);water.castShadow=false;
+ const waterMaterial=material('#ffffff',{vertexColors:true,roughness:.35,metalness:0,transparent:true,opacity:1,depthWrite:false});
+ const water=mesh(solid(96,32,(u,v)=>{const x=-6+u*12;return [x,riverCenter(x)+(v*2-1)*HALF_WIDTH]},()=>WATER_Y,bedHeight,(x,y,z,upper)=>waterColor(upper?WATER_Y-(WATER_Y-bedHeight(x,z))*.2:y).multiplyScalar(.96+.04*Math.sin(x*2.3+z*1.7))),waterMaterial,parts[0]!.group);water.castShadow=false;
  const ripples:T.Vector3[]=[];
  for(let row=0;row<11;row++)for(let j=0;j<5;j++){const x=-5.7+row*1.03+j*.07,z=riverCenter(x)+(j-2)*.65;for(let k=0;k<6;k++)ripples.push(new T.Vector3(x+k*.08,WATER_Y+.004,z+.018*Math.sin(k)),new T.Vector3(x+(k+1)*.08,WATER_Y+.004,z+.018*Math.sin(k+1)));}
- const rippleGeometry=new T.BufferGeometry().setFromPoints(ripples);geometries.push(rippleGeometry);const rippleMaterial=new T.LineBasicMaterial({color:'#c9ccb1',transparent:true,opacity:.22,depthWrite:false});materials.push(rippleMaterial);const rippleLines=new T.LineSegments(rippleGeometry,rippleMaterial);rippleLines.raycast=()=>{};parts[0]!.group.add(rippleLines);
+ const rippleGeometry=new T.BufferGeometry().setFromPoints(ripples);geometries.push(rippleGeometry);const rippleMaterial=new T.LineBasicMaterial({color:'#d8c497',transparent:true,opacity:.22,depthWrite:false});materials.push(rippleMaterial);const rippleLines=new T.LineSegments(rippleGeometry,rippleMaterial);rippleLines.raycast=()=>{};parts[0]!.group.add(rippleLines);
  // Vegetation is an illustrative cue, not a land-cover dataset.
  let seed=62;const random=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
  const leafGeometry=new T.IcosahedronGeometry(1,1),leafMaterial=material('#40583e');geometries.push(leafGeometry);

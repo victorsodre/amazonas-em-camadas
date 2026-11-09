@@ -60,6 +60,6 @@ Hashes SHA-256 de referência do checkout em 07/11/2026:
 
 ## Direção específica deste experimento
 
-Diorama de um trecho definido, com água escura e solo em camadas de tons naturais. A interface permanece azul-noite; linhas amarelas marcam seleção e escala.
+Diorama de um trecho definido, com água barrenta (ocre) que escurece com a profundidade e solo em camadas de tons naturais. A interface permanece azul-noite; linhas amarelas marcam seleção e escala.
 
 O cenário deve facilitar a leitura de **o que existe abaixo da superfície do amazonas?**. Em capturas para redes, preservar a marca e o objeto, reduzir controles secundários e manter rótulos essenciais. Evitar chamar um mockup de aplicação pronta.

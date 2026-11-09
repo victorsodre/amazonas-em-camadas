@@ -42,7 +42,7 @@ O Reel registrou 540.517 visualizações, 1.539 salvamentos e 2.498 compartilham
 
 Óbidos, Pará, é a referência documentada. A cena é um corte autoral **sem escala**, com quatro conjuntos: água, leito/margens, depósitos e subsolo sedimentar. Retire a água da vista, separe as camadas, selecione, isole e reenquadre. Uma vista própria mostra água entre grãos, sem representar um canal subterrâneo.
 
-As fichas explicam origem, data, método, resolução e limites de cada informação. Busca, tour de quatro etapas, malha, tela cheia e PNG 16:9/9:16 completam a exploração. Marca e tipografia oficiais, fontes locais e nenhum mapa, foto, som ou modelo de terceiros incorporado.
+As fichas explicam origem, data, método, resolução e limites de cada informação, com os números do vídeo (profundidade, mergulho, vazão e Hamza) e suas fontes. Abaixo do corte, uma régua em escala real compara o rio (até 120 m) com o Hamza (cerca de 4.000 m). O tour de quatro etapas retira a água e separa as camadas; busca, malha, tela cheia e PNG 16:9/9:16 completam a exploração. Marca e tipografia oficiais, fontes locais e nenhum mapa, foto, som ou modelo de terceiros incorporado.
 
 ## Executar
 
@@ -61,7 +61,7 @@ npm run preview
 
 ## Evidências e limites
 
-[APURACAO.md](docs/APURACAO.md) documenta o estudo local, a referência geográfica e a pesquisa relacionada ao Hamza. [VALIDACAO.md](docs/VALIDACAO.md) registra sete testes, 94 verificações de navegador e a inspeção visual. Validação móvel por viewport no Chrome do Mac, sem telefone físico.
+[APURACAO.md](docs/APURACAO.md) documenta o estudo local, a referência geográfica e a pesquisa relacionada ao Hamza. [VALIDACAO.md](docs/VALIDACAO.md) registra a validação de navegador de 07/11; hoje são 22 testes automatizados (ver DECISOES.md, 09/11). Validação móvel por viewport no Chrome do Mac, sem telefone físico.
 
 Não há batimetria medida, previsão hidrológica ou coluna estratigráfica reconstruída. Retirar água altera visibilidade; separar camadas cria intervalos de exploração. A amostra de poros é conceitual. Esses limites aparecem na interface e nos PNGs.
 

@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as T from 'three';
-import { createModel, applyDisplay } from './model.ts';
+import { createModel, applyDisplay, waterColor } from './model.ts';
+import { BED_FLOOR, WATER_Y } from '../simulation/section.ts';
 
 test('four selectable layers assemble without gaps and separate deterministically',()=>{
  const m=createModel();
@@ -32,4 +33,12 @@ test('pore sample is a separate explanatory view and its water can be hidden',()
   applyDisplay(m,{water:1,separation:0,mode:'pores',poreWater:false});assert.equal(m.poreWater.visible,false);
   applyDisplay(m,{water:1,separation:0,mode:'section',poreWater:true});assert.equal(m.pores.visible,false);assert.equal(m.section.visible,true);
  }finally{m.dispose()}
+});
+test('muddy water: ochre at the surface, darkening steadily where the light fades',()=>{
+ const surface=waterColor(WATER_Y),bottom=waterColor(BED_FLOOR);
+ assert.ok(surface.r>surface.g&&surface.g>surface.b,'surface reads as ochre, not green');
+ let previous=Infinity;
+ for(let i=0;i<=20;i++){const c=waterColor(WATER_Y-(WATER_Y-BED_FLOOR)*i/20),l=c.r+c.g+c.b;assert.ok(l<=previous+1e-12);previous=l}
+ assert.ok(bottom.r+bottom.g+bottom.b<(surface.r+surface.g+surface.b)/3);
+ assert.deepEqual(waterColor(-10),bottom);assert.deepEqual(waterColor(10),surface);
 });

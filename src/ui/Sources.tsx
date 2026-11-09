@@ -7,7 +7,7 @@ export function Sources({source,onClose}:{source:SourceId|'overview'|null;onClos
  return <dialog ref={dialog} className="sources-dialog" aria-label="Fontes e representação" onClose={onClose}>
   <div className="dialog-top"><span className="eyebrow">POR TRÁS DO EXPERIMENTO</span><button className="icon-button" aria-label="Fechar fontes" onClick={onClose}><X size={18}/></button></div>
   <h2>O que sabemos.<br/>O que desenhamos.</h2>
-  <p>Referência: <strong>Óbidos, no Amazonas.</strong> A localização é documentada. O corte e a amostra de poros são ilustrações autorais, sem escala.</p>
+  <p>Referência: <strong>Óbidos, no Amazonas.</strong> A localização é documentada. O corte e a amostra de poros são ilustrações autorais, sem escala. Os números do vídeo (profundidade, vazão e Hamza) aparecem com a fonte de cada um, na régua em escala real e nas fichas das camadas.</p>
   <div className="location-record"><span>{location.name}</span><strong>{location.label}</strong><small>{location.scope}</small></div>
   {sources.map(s=><details className="source-record" data-source={s.id} key={s.id} open={source===s.id}>
    <summary>{s.title}</summary><p className="source-author">{s.author}</p><p>{s.date}</p>

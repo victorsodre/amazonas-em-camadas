@@ -14,7 +14,7 @@
 
 ## Testes proporcionais
 
-Sete testes cobrem continuidade do perfil, limites da água, ordenação das camadas, reversibilidade, relógio, modelo e enquadramento. No navegador, conferir retirar/repor água, separar/remontar, quatro seleções/isolamentos, busca, tour, poros, fichas, PNGs e fallback. Não criar testes que apenas repitam o texto destes guias.
+Vinte e dois testes cobrem continuidade do perfil, limites da água, ordenação das camadas, reversibilidade, relógio, modelo, cor da água, enquadramento com a direção do usuário, resize sem perder zoom, toque × arrasto, tour e etapas, aritmética e fontes dos números do vídeo, SEO do `index.html` e o piso de 11 px no CSS. No navegador, conferir retirar/repor água, separar/remontar, quatro seleções/isolamentos, busca, tour, poros, fichas, PNGs e fallback. Não criar testes que apenas repitam o texto destes guias.
 
 ## Regressões específicas
 
@@ -23,6 +23,9 @@ Sete testes cobrem continuidade do perfil, limites da água, ordenação das cam
 - Trocar corte/poros, ocultar/repor água dos poros e voltar. A amostra não deve aparecer sob o trecho.
 - Cada ficha deve manter método, data e limites. O subsolo aponta ao estudo local; a amostra de poros aponta ao USGS.
 - PNG precisa manter “ilustrativo/ilustrativa” e “sem escala”, inclusive ao exportar a vista de poros.
+- Tour: o passo 2 retira a água; etapas e "Retirar água" durante o tour mudam de passo, não encerram. Separar e redimensionar não podem voltar a câmera ao ângulo padrão.
+- Número novo na tela: valor em `src/content/facts.ts`, ficha com data e limites em `src/content/project.ts`; o teste de fontes falha se a ficha faltar.
+- Celular: tocar no canvas sem arrastar não pausa nem desmarca; deslizar na vertical rola a página.
 
 ## Rotina após lançamento
 

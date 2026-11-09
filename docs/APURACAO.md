@@ -25,6 +25,10 @@ Também consultado o [estudo SGB de área para aterro em Óbidos, 2024](https://
 - Interface e PNG mantêm a indicação de ilustração/ausência de escala. Fichas registram origem, data, método, resolução disponível e limite.
 - Não há altura de rio ao vivo, batimetria marinha aplicada ao canal ou dados pessoais.
 
+## Números do vídeo (09/11/2026)
+
+Desde 09/11, a interface mostra os números do EP096 (roteiro e `pesquisa.md` do episódio), reconferidos nas páginas: Portal Amazônia (29/06/2021: média de ~50 m, até 120 m no oeste paraense; 23/11/2021: mergulho até 40 m), Wikipédia pt "Rio Amazonas" (100 m; vazão média de 209 mil m³/s em 1973–1990), "Cristo Redentor" (30 m + 8 m de pedestal) e "Rio Hamza" (~4.000 m, 10 a 100 m/ano, 241 poços, "não é um aquífero"), e GIA (água branca barrenta e turva, ~0,1 g/L perto de Manaus). As velocidades e a profundidade do Hamza vêm da Wikipédia, não do resumo do artigo de 2012, que não foi reaberto. Ficam numa régua em escala real separada do corte; o corte continua sem escala. Sem número de transparência: nenhuma fonte o dá.
+
 ## Para uma versão medida
 
 Exigir os dados originais com autorização de uso, cobertura, data, sistema de referência horizontal, datum vertical, resolução final, processamento e incertezas. Validar a transformação e o exagero vertical separadamente. A existência de um PDF não satisfaz esses requisitos.
