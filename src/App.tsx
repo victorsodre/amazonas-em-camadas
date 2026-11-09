@@ -1,8 +1,9 @@
-import { VideoSection } from './ui/VideoSection.tsx';
-import { CollectionNav } from './ui/CollectionNav.tsx';
+import { video } from './content/video.ts';
+import { VideoSection } from './kit/VideoSection.tsx';
+import { CollectionNav } from './kit/CollectionNav.tsx';
 import {useCallback,useEffect,useRef,useState} from 'react';
 import {ArrowLeft,ArrowRight,ArrowUpRight,Box,ChevronRight,Download,Focus,Layers3,MapPin,Maximize,Minus,Plus,Search,X} from 'lucide-react';
-import {Brand} from './ui/Brand.tsx';
+import {Brand} from './kit/Brand.tsx';
 import {Sources} from './ui/Sources.tsx';
 import {LayerControls} from './ui/LayerControls.tsx';
 import {createScene} from './scene/runtime.ts';
@@ -65,7 +66,7 @@ export function App(){
   <div className="mobile-actions">{mode==='section'?<><button onClick={()=>setDrawer(true)}><Layers3 size={16}/>Camadas <span>4</span></button><button disabled={!ready} onClick={()=>guide(0)}>Conhecer as camadas <ArrowRight size={16}/></button></>:<button onClick={()=>setSource('usgs')}>Entender os poros <ArrowUpRight size={16}/></button>}</div>
   {mode==='section'?<LayerControls value={display} animating={animating} disabled={!ready} change={change} transition={transition} pause={pause} reset={reset}/>:<section className="control-dock river-dock pore-dock" aria-label="Explorar os poros"><button className="primary" disabled={!ready} aria-pressed={poreWater} onClick={()=>setPoreWater(v=>!v)}>{poreWater?'Ocultar água dos poros':'Mostrar água dos poros'}</button><span>Grãos sólidos · espaços com água</span><button className="icon-button" aria-label="Reiniciar experiência" onClick={reset}><RotateIcon/></button></section>}
   <div className="representation-note"><span>{mode==='pores'?'MODELO CONCEITUAL · NÃO É UM CANAL SUBTERRÂNEO':'FORMAS E ESPESSURAS ILUSTRATIVAS · SEM ESCALA'}</span><button onClick={()=>setSource('hamza')}>E o Hamza? <ArrowUpRight size={12}/></button></div>
- </main><VideoSection/><footer><span>UM EXPERIMENTO DO OVICTORLAB <i>© 2026</i></span><button onClick={()=>setSource('overview')}>Como representamos · Fontes e créditos <ArrowUpRight size={13}/></button><CollectionNav current="amazonas-em-camadas"/></footer>
+ </main><VideoSection video={video}/><footer><span>UM EXPERIMENTO DO OVICTORLAB <i>© 2026</i></span><button onClick={()=>setSource('overview')}>Como representamos · Fontes e créditos <ArrowUpRight size={13}/></button><CollectionNav current="amazonas-em-camadas"/></footer>
  <Sources source={source} onClose={()=>setSource(null)}/><dialog ref={dialog} className="parts-dialog" aria-label="Camadas do Amazonas" onClose={()=>setDrawer(false)}><div className="dialog-top"><span className="eyebrow">CONHEÇA AS CAMADAS</span><button className="icon-button" aria-label="Fechar camadas" onClick={()=>setDrawer(false)}><X size={18}/></button></div>{list()}</dialog><span className="sr-only" role="status" aria-live="polite">{notice}</span></div>
 }
 function RotateIcon(){return <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M3 11a9 9 0 1 1 2 7M3 4v7h7"/></svg>}

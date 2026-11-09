@@ -2,7 +2,7 @@
 
 **[Abrir a experiência →](https://victorsodre.github.io/amazonas-em-camadas/)** · [Os 10 experimentos](docs/COLECAO.md) · [Publicação e manutenção](docs/PUBLICACAO.md)
 
-[![Amazonas em camadas — captura real da experiência](public/share.png)](https://victorsodre.github.io/amazonas-em-camadas/)
+[![Amazonas em camadas — captura real da experiência](public/share.jpg)](https://victorsodre.github.io/amazonas-em-camadas/)
 
 **O que existe abaixo da superfície do Amazonas?**
 
